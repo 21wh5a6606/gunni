@@ -1,0 +1,36 @@
+#include <stdio.h>
+int gcd_iter(int a,int b);
+int gcd_rec(int a,int b);
+int main()
+{
+int a,b;
+printf("Enter the two integer values\n");
+scanf("%d%d",&a,&b);
+int res1 = gcd_iter(a,b);
+printf("Gcd of 2 numbers using iterative is %d\n",res1);
+int res2 = gcd_rec(a,b);
+printf("Gcd of 2 numbers using recursive is %d\n",res2);
+return 0;
+}
+int gcd_iter(int a,int b)
+{
+int temp;
+while(a % b != 0)
+{
+temp = b;
+b = a % b;
+a = temp;
+}
+return b;
+}
+int gcd_rec(int a,int b)
+{
+if(a % b == 0)
+{
+return b;
+}
+else
+{
+return gcd_rec(b,a % b);
+}
+}
